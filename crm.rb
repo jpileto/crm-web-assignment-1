@@ -8,3 +8,7 @@ get '/' do
   @server_time = Time.now
   erb :index
 end
+
+get '/contacts' do
+  erb :contacts
+end
