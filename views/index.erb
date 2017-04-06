@@ -1,9 +1,31 @@
-<h1>Welcome to <%= @crm_app_name %>!</h1>
 
-<h2>Today is <%= @server_time %></h2>
+<h2>There are currently <%= Contact.all.length %> contacts</h2>
 
-<p>Main Menu</p>
+<div class="home-container">
+
+  <ul class="contact-list">
+    <li><% Contact.all.each do |contact| %></li>
+    <div class="contact-info">
+      <%= contact.first_name %> <%= contact.last_name %> <%= contact.email %>
+      <div class="contact-option">
+        <a href="/contacts/<%= contact.id %>/edit">Edit</a> | <a href="/contacts/<%= contact.id %>/delete">Delete</a>
+      </div>
+    </div>
+    <% end %>
+
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <p>Main Menu</p>
 <ul>
-  <li><a href="/contacts">View all contacts</a></li>
-  <li><a href="/contacts/new">Add a new contact</a></li>
-</ul>
+<li><a href="/contacts">View all contacts</a></li>
+<li><a href="/contacts/new">Add a new contact</a></li>
+</ul> -->
